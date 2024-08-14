@@ -1,20 +1,19 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-require("dotenv").config()
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: "flashcards-saas-2b035.firebaseapp.com",
-  projectId: "flashcards-saas-2b035",
-  storageBucket: "flashcards-saas-2b035.appspot.com",
-  messagingSenderId: "345142191903",
-  appId: "1:345142191903:web:78db224e613b9259a5f22a",
-  measurementId: "G-EK7ESTRZ52"
+  apiKey: "AIzaSyDfNlTVBh68k-tqm4Zh4CO6eHRZET3mgkY",
+  authDomain: "flashcardsaas-f6943.firebaseapp.com",
+  projectId: "flashcardsaas-f6943",
+  storageBucket: "flashcardsaas-f6943.appspot.com",
+  messagingSenderId: "786190593871",
+  appId: "1:786190593871:web:989517e230ac8649a39f3a",
+  measurementId: "G-0T99E8G3MH"
 };
 
 // Initialize Firebase
