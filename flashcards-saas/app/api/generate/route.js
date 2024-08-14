@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
-const Groq = require('groq-sdk');
 
-const groq = new Groq();
+const Groq = require('groq-sdk');
+const apiKey = process.env.LLAMA_API_KEY;
+const groq = new Groq({ apiKey });
 async function main() {
   const chatCompletion = await groq.chat.completions.create({
     "messages": [
