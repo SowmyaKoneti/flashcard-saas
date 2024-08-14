@@ -1,10 +1,10 @@
 'use client';
+
 import { Container, TextField, Typography, Box, Button } from "@mui/material";
-import { doc, collection, writeBatch, getDoc } from "firebase/firestore"; // Correct import
-import { useRouter } from "next/router";
+import { doc, collection, writeBatch, getDoc } from "firebase/firestore"; 
 import { useState } from 'react';
-import { useUser } from '@clerk/nextjs';
-import {getfirebase} from 'firebase/firestore';
+import { useRouter } from 'next/navigation'; // Corrected import for useRouter from next/navigation
+import { useUser } from '@clerk/nextjs'; // Clerk authentication
 
 export default function Generate() {
     const { isLoaded, isSignedIn, user } = useUser();
@@ -48,6 +48,8 @@ export default function Generate() {
             alert('Please enter a name');
             return;
         }
+
+        const db = getfirebase();
         const batch = writeBatch(db);
         const userDocRef = doc(collection(db, 'users'), user.id);
         const docSnap = await getDoc(userDocRef);
