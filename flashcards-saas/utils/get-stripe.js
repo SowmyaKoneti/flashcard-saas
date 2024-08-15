@@ -1,9 +1,9 @@
 import { loadStripe } from "@stripe/stripe-js";
-let stripePromise
+let stripePromise;
 
 const getStripe = () => {
-    if(!stripePromise){
-        stripePromise = loadStripe(process.env.PUBLIC_STRIPE_API_KEY);
+    if (!stripePromise) {
+        stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
     }
     return stripePromise
 }

@@ -1,11 +1,11 @@
 'use client';
 
-import { Container, TextField, Typography, Box, Button } from "@mui/material";
-import { doc, collection, writeBatch, getDoc } from "firebase/firestore"; 
+import { Container, Card, Grid, TextField, Typography, Box, Button, CardActionArea, CardContent, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from "@mui/material";
+import { doc, collection, writeBatch, getDoc } from "firebase/firestore";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation'; // Corrected import for useRouter from next/navigation
 import { useUser } from '@clerk/nextjs'; // Clerk authentication
-
+import { db } from "@/firebase";
 export default function Generate() {
     const { isLoaded, isSignedIn, user } = useUser();
     const [flashcards, setFlashcards] = useState([]);
@@ -18,14 +18,10 @@ export default function Generate() {
     const handleSubmit = async () => {
         fetch('api/generate', {
             method: 'POST',
-            body: JSON.stringify({ text }), // Wrap the text in an object and stringify
-            headers: {
-                'Content-Type': 'application/json'
-            }
+            body: text,
         })
-        .then((res) => res.json())
-        .then((data) => setFlashcards(data))
-        .catch((error) => console.error('Error generating flashcards:', error)); // Handle errors
+            .then((res) => res.json())
+            .then((data) => setFlashcards(data))
     };
 
     const handleCardClick = (id) => {
@@ -48,8 +44,6 @@ export default function Generate() {
             alert('Please enter a name');
             return;
         }
-
-        const db = getfirebase();
         const batch = writeBatch(db);
         const userDocRef = doc(collection(db, 'users'), user.id);
         const docSnap = await getDoc(userDocRef);
@@ -76,13 +70,13 @@ export default function Generate() {
         await batch.commit();
         handleClose();
         router.push('/flashcards');
-    };
-
-    return (
+    }; return (
         <Container maxWidth="md">
-            <Box sx={{ mt: 4, mb: 6, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <Typography variant="h4">Generate Flashcards</Typography>
-                <Box sx={{ p: 4, width: '100%' }}>
+            <Box sx={{ mt: 4, mb: 6, textAlign: 'center' }}>
+                <Typography variant="h4" gutterBottom>
+                    Generate Flashcards
+                </Typography>
+                <Box sx={{ p: 4, maxWidth: 600, mx: 'auto' }}>
                     <TextField
                         value={text}
                         onChange={(e) => setText(e.target.value)}
@@ -91,14 +85,69 @@ export default function Generate() {
                         multiline
                         rows={4}
                     />
-                    <Button variant="contained" onClick={handleSubmit} sx={{ mt: 2 }}>
+                    <Button variant="contained" color="primary" onClick={handleSubmit} fullWidth sx={{ mt: 2 }}>
                         Generate
-                    </Button>
-                    <Button variant="contained" onClick={saveFlashCards} sx={{ mt: 2 }}>
-                        Save Flashcards
                     </Button>
                 </Box>
             </Box>
+            {flashcards.length > 0 && (
+                <Box sx={{ mt: 4 }}>
+                    <Typography variant="h5" gutterBottom>
+                        Flashcards Preview
+                    </Typography>
+                    <Grid container spacing={2}>
+                        {flashcards.map((flashcard, index) => (
+                            <Grid item xs={12} sm={6} md={4} key={index}>
+                                <Card sx={{ height: 200, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <CardActionArea onClick={() => handleCardClick(index)}
+                                        sx={{
+                                            width: '100%',
+                                            height: '100%',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            position: 'relative',
+                                            overflow: 'hidden',
+                                            borderRadius: 2,
+                                        }}>
+                                        <CardContent sx={{ position: 'absolute', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', backfaceVisibility: 'hidden' }}>
+                                            <Typography variant="h6" component="div" sx={{ textAlign: 'center', padding: 2 }}>
+                                                {flipped[index] ? flashcard.back : flashcard.front}
+                                            </Typography>
+                                        </CardContent>
+                                    </CardActionArea>
+                                </Card>
+                            </Grid>
+                        ))}
+                    </Grid>
+                    <Button variant="contained" color="secondary" onClick={handleOpen} sx={{ mt: 2 }}>
+                        Save Flashcards
+                    </Button>
+                </Box>
+            )}
+            <Dialog open={open} onClose={handleClose}>
+                <DialogTitle>Save Flashcards</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        Please enter a name for your flashcard set.
+                    </DialogContentText>
+                    <TextField
+                        autoFocus
+                        margin="dense"
+                        label="Set Name"
+                        type="text"
+                        fullWidth
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose}>Cancel</Button>
+                    <Button onClick={saveFlashCards} color="primary">
+                        Save
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </Container>
     );
-}
+}    
