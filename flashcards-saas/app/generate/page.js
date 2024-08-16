@@ -275,7 +275,7 @@ export default function Generate() {
                                             </Grid>
                                         ))}
                                     </Grid>
-                                    <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+                                    {/* <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
                                         <Button
                                             variant="contained"
                                             sx={{
@@ -289,7 +289,7 @@ export default function Generate() {
                                         >
                                             Save Flashcards
                                         </Button>
-                                    </Box>
+                                    </Box> */}
                                 </Box>
                             ) : (
                                 <Typography variant="body1" sx={{ textAlign: 'center' }}>No flashcards to display.</Typography>
