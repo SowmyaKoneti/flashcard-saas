@@ -9,27 +9,6 @@ import {
 import { doc, collection, writeBatch, getDoc } from 'firebase/firestore';
 import { db } from '@/firebase';
 
-const ShapeOverlay = ({ shape, color, size, position }) => {
-    const styles = {
-        position: 'absolute',
-        backgroundColor: color,
-        width: size,
-        height: size,
-        ...position,  // This will apply the position style dynamically
-    };
-    if (shape === 'circle') {
-        styles.borderRadius = '50%';
-    } else if (shape === 'triangle') {
-        styles.width = 0;
-        styles.height = 0;
-        styles.borderLeft = `${size / 2}px solid transparent`;
-        styles.borderRight = `${size / 2}px solid transparent`;
-        styles.borderBottom = `${size}px solid ${color}`;
-    }
-
-    return <Box sx={styles} />;
-};
-
 const gradients = [
     'linear-gradient(135deg, #FFDEE9 0%, #B5AAFF 100%)',
     'linear-gradient(135deg, #C3E0E5 0%, #D4B2E2 100%)',
@@ -46,7 +25,7 @@ export default function Generate() {
     const [name, setName] = useState('');
     const [text, setText] = useState('');
     const [selectedTab, setSelectedTab] = useState(0);
-    const [previewShown, setPreviewShown] = useState(false); // New state
+    const [previewShown, setPreviewShown] = useState(false);
     const router = useRouter();
 
     const handleSubmit = async () => {
@@ -59,7 +38,7 @@ export default function Generate() {
             if (!response.ok) throw new Error('Network response was not ok');
             const data = await response.json();
             setFlashcards(data);
-            setPreviewShown(true);  // Set to true after data is fetched
+            setPreviewShown(true);
         } catch (error) {
             console.error('There was a problem with the fetch operation:', error);
         }
