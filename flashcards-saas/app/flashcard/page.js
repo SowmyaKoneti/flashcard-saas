@@ -45,6 +45,27 @@ export default function Flashcard() {
         return <></>;
     }
     return (
+        <Box
+            sx={{
+                position: 'relative',
+                minHeight: '100vh',
+                padding: 0,
+                '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    backgroundImage: 'url(/image.png)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                    opacity: 0.5,
+                    zIndex: -1,
+                }
+            }}
+        >
         <Container maxWidth="md">
             <Grid container spacing={3} sx={{ mt: 4 }}>
                 {flashcards.map((flashcard) => (
@@ -54,6 +75,11 @@ export default function Flashcard() {
                                 height: 200,
                                 perspective: '1000px',
                                 position: 'relative',
+                                backgroundColor: '#F9F7FC', // Light background color to match the palette
+                                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Subtle shadow
+                                '&:hover': {
+                                    boxShadow: '0 6px 12px rgba(0, 0, 0, 0.2)', // Shadow on hover
+                                },
                             }}
                         >
                             <Box
@@ -77,15 +103,24 @@ export default function Flashcard() {
                                         display: 'flex',
                                         justifyContent: 'center',
                                         alignItems: 'center',
+                                        backgroundColor: '#C4A3C4', // Matching the color palette
+                                        color: '#FFFFFF', // Text color to contrast with the background
                                     }}
                                 >
                                     <CardContent>
-                                        <Typography variant="h5" component="div">
+                                        <Typography 
+                                            variant="h5" 
+                                            component="div"
+                                            sx={{ 
+                                                fontFamily: 'Dancing Script, cursive',
+                                                fontWeight: 700,
+                                            }}
+                                        >
                                             {flashcard.front}
                                         </Typography>
                                     </CardContent>
                                 </CardActionArea>
-
+    
                                 {/* Back Side */}
                                 <CardActionArea
                                     sx={{
@@ -97,10 +132,19 @@ export default function Flashcard() {
                                         display: 'flex',
                                         justifyContent: 'center',
                                         alignItems: 'center',
+                                        backgroundColor: '#B48CB9', // Darker lavender for the back side
+                                        color: '#FFFFFF', // Text color to contrast with the background
                                     }}
                                 >
                                     <CardContent>
-                                        <Typography variant="h5" component="div">
+                                        <Typography 
+                                            variant="h5" 
+                                            component="div"
+                                            sx={{ 
+                                                fontFamily: 'Dancing Script, cursive',
+                                                fontWeight: 700,
+                                            }}
+                                        >
                                             {flashcard.back}
                                         </Typography>
                                     </CardContent>
@@ -111,5 +155,7 @@ export default function Flashcard() {
                 ))}
             </Grid>
         </Container>
+        </Box>
     );
+    
 }
