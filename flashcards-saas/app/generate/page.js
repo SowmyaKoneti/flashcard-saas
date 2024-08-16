@@ -160,10 +160,10 @@ export default function Generate() {
                         <Button
                             variant="contained"
                             sx={{
-                                borderRadius: 5,
-                                backgroundColor: '#C3B1E1', // Purple color
+                                borderRadius: 2,
+                                backgroundColor: '#C4A3C4', // '#C3B1E1' Purple color
                                 '&:hover': {
-                                    backgroundColor: '#7b1fa2', // Darker shade of purple for hover effect
+                                    backgroundColor: '#B48CB9', // '#7b1fa2' Darker shade of purple for hover effect
                                 }
                             }}
                             onClick={handleSubmit}
@@ -243,7 +243,17 @@ export default function Generate() {
                                         ))}
                                     </Grid>
                                     <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
-                                        <Button variant="contained" color="secondary" onClick={handleOpen}>
+                                        <Button 
+                                            variant="contained" 
+                                            sx={{
+                                                borderRadius: 2,
+                                                backgroundColor: '#C4A3C4', // Match "Generate" button color
+                                                '&:hover': {
+                                                    backgroundColor: '#B48CB9', // Darker shade on hover
+                                                }
+                                            }} 
+                                            onClick={handleOpen}
+                                        >
                                             Save Flashcards
                                         </Button>
                                     </Box>
@@ -272,30 +282,56 @@ export default function Generate() {
 
             </Container>
 
-            <Box sx={{ display: open ? 'block' : 'none', position: 'fixed', top: '20%', left: '50%', transform: 'translate(-50%, 0)', width: '90%', maxWidth: 500, bgcolor: 'background.paper', boxShadow: 24, p: 4, borderRadius: 2 }}>
-                <Typography variant="h6" sx={{ mb: 2 }}>
-                    Save Flashcards
-                </Typography>
-                <Typography variant="body2" sx={{ mb: 2 }}>
-                    Please enter a name for your flashcard set.
-                </Typography>
-                <TextField
-                    autoFocus
-                    margin="dense"
-                    label="Set Name"
-                    type="text"
-                    fullWidth
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    sx={{ mb: 2 }}
-                />
-                <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2 }}>
-                    <Button variant="outlined" onClick={handleClose}>Cancel</Button>
-                    <Button variant="contained" color="primary" onClick={saveFlashCards}>Save</Button>
-                </Box>
-            </Box>
+            <Dialog open={open} onClose={handleClose}>
+                <DialogTitle>Save Flashcards</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        Please enter a name for your flashcard set.
+                    </DialogContentText>
+                    <TextField
+                        autoFocus
+                        margin="dense"
+                        label="Set Name"
+                        type="text"
+                        fullWidth
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        sx={{ mb: 2 }}
+                    />
+                </DialogContent>
+                <DialogActions>
+                    <Button 
+                        variant="outlined" 
+                        onClick={handleClose}
+                        sx={{
+                            borderRadius: 2,
+                            borderColor: '#C4A3C4', // Match "Generate" button color
+                            color: '#C4A3C4',
+                            '&:hover': {
+                                borderColor: '#B48CB9', // Darker shade on hover
+                                color: '#B48CB9',
+                            }
+                        }}
+                    >
+                        Cancel
+                    </Button>
+                    <Button 
+                        variant="contained" 
+                        color="primary" 
+                        onClick={saveFlashCards}
+                        sx={{
+                            borderRadius: 2,
+                            backgroundColor: '#C4A3C4', // Match "Generate" button color
+                            '&:hover': {
+                                backgroundColor: '#B48CB9', // Darker shade on hover
+                            }
+                        }}
+                    >
+                        Save
+                    </Button>
+                </DialogActions>
+            </Dialog>
 
         </Box>
     );
 }
-

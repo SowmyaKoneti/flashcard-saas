@@ -1,28 +1,32 @@
-import { SignUp } from '@clerk/nextjs';
+import { SignIn } from '@clerk/nextjs';
 import { Button, AppBar, Box, Container, Toolbar, Typography } from '@mui/material';
 import Link from 'next/link';
+import Head from 'next/head';
 
 export default function SignUpPage() {
   return (
     <Container maxWidth="sm">
-      <AppBar position="static" sx={{ backgroundColor: "#3f51b5" }}>
+      <Head>
+        <title>Sign In - Flashcard SaaS</title>
+        <meta name="description" content="Sign in to your Flashcard SaaS account" />
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Dancing+Script&display=swap" rel="stylesheet" />
+      </Head>
+      <br></br>
+      <AppBar position="static" sx={{ backgroundColor: "#D8BFD8" }}>
         <Toolbar>
           <Typography
-            variant="h6"
+            variant="h5"
             sx={{
               flexGrow: 1,
+              fontFamily: 'Lobster, cursive',
+              fontWeight: 700,
             }}
           >
-            Flashcard Saas
+            Custom Flashcards 
           </Typography>
-          <Button color="inherit">
-            <Link href="/sign-in" passHref>
-              Sign In
-            </Link>
-          </Button>
-          <Button color="inherit">
-            <Link href="/login" passHref>
-              Login
+          <Button color="inherit" sx={{ fontFamily: 'Dancing Script, cursive' }}>
+            <Link href="/sign-up" passHref>
+              Sign Up
             </Link>
           </Button>
         </Toolbar>
@@ -34,11 +38,18 @@ export default function SignUpPage() {
         justifyContent="center"
         sx={{ mt: 4 }} 
       >
-        <Typography variant="h4">
-          Sign Up
+        <Typography
+          variant="h4"
+          sx={{
+            fontFamily: 'Lobster, cursive',
+            fontWeight: 700,
+            color: '#C4A3C4', // Darker lavender shade matching the "Get Started" button
+          }}
+        >
+          Sign In
         </Typography>
-        <SignUp routing="hash" /> 
-        
+        <br></br>
+        <SignIn routing="hash" />
       </Box>
     </Container>
   );
