@@ -1,7 +1,7 @@
 # Custom Flashcards
 
 ## Summary
-An app to create your own flashcards with asimple text
+An AI application to create your own flashcards with a simple text.
 
 ## Website
 
