@@ -210,9 +210,9 @@ export default function Generate() {
                     }}
                 >
                     <Tabs value={selectedTab} onChange={handleTabChange} centered>
-                        <Tab label="Flashcards Preview" sx={{ minWidth: 'unset', color: selectedTab === 0 ? '#FF6F6F' : '#333', fontWeight: selectedTab === 0 ? 'bold' : 'normal' }} />
+                        <Tab label="Preview" sx={{ minWidth: 'unset', color: selectedTab === 0 ? '#FF6F6F' : '#333', fontWeight: selectedTab === 0 ? 'bold' : 'normal' }} />
                         <Tab label="Saved Cards" sx={{ minWidth: 'unset', color: selectedTab === 1 ? '#FF6F6F' : '#333', fontWeight: selectedTab === 1 ? 'bold' : 'normal' }} />
-                        <Tab label="Viewed Cards" sx={{ minWidth: 'unset', color: selectedTab === 2 ? '#FF6F6F' : '#333', fontWeight: selectedTab === 2 ? 'bold' : 'normal' }} />
+                        <Tab label="History" sx={{ minWidth: 'unset', color: selectedTab === 2 ? '#FF6F6F' : '#333', fontWeight: selectedTab === 2 ? 'bold' : 'normal' }} />
                     </Tabs>
 
                     {selectedTab === 0 && (
