@@ -70,7 +70,7 @@ export default function Home() {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          opacity: 0.5,
+          opacity: 1,
           zIndex: -1,
         }
       }}
@@ -91,11 +91,13 @@ export default function Home() {
           </SignedIn>
         </Stack>
         <Box sx={{ textAlign: 'center', my: 4 }}>
-          <Typography variant="h2" component="h1" gutterBottom sx={{ fontFamily: 'Lobster, cursive', fontWeight: 700 }}>
+          <Typography variant="h2" component="h1" gutterBottom >
             Custom Flashcards
           </Typography>
           <Typography variant="h5" component="h2" gutterBottom sx={{ fontFamily: 'Lobster', fontStyle: 'italic', fontWeight: 'light' }}>
-            The easiest way to create flashcards from your text.
+            Master Any Subject with Intelligent Flashcards
+            <br />
+            Boost your learning efficiency with our customizable flashcards. Create, save, and review cards effortlessly—anytime, anywhere.
           </Typography>
           <Button
             variant="contained"
@@ -112,7 +114,7 @@ export default function Home() {
             Get Started
           </Button>
         </Box>
-        <Box sx={{ my: 6 }}>
+        {/* <Box sx={{ my: 6 }}>
           <Typography variant="h4" component="h2" gutterBottom sx={{ fontFamily: 'Dancing Script', fontWeight: 700 }}>
             Featured
           </Typography>
@@ -187,13 +189,13 @@ export default function Home() {
               </Typography>
             </Grid>
           </Grid>
-        </Box>
+        </Box> */}
         <Box
           sx={{ my: 5, textAlign: 'left' }}
           onMouseEnter={handlePricingHover}
           ref={pricingRef}
         >
-          <Typography variant="h4" component="h2" gutterBottom sx={{ fontFamily: 'Dancing Script', fontWeight: 700 }}>
+          <Typography variant="h4" component="h2" gutterBottom sx={{ fontFamily: 'Dancing Script', textAlign: 'center', fontWeight: 700 }}>
             Pricing
           </Typography>
           <Grid container spacing={4} justifyContent="center">

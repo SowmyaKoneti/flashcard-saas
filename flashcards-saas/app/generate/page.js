@@ -1,9 +1,11 @@
 'use client';
+import { Bookmark, BookmarkBorder, Delete } from '@mui/icons-material';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+
 import { useUser } from '@clerk/nextjs';
 import {
-    Container, Box, Typography, Button, Grid, Card, CardActionArea, CardContent,
+    IconButton, Container, Box, Typography, Button, Grid, Card, CardActionArea, CardContent,
     Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, TextField, Tabs, Tab
 } from '@mui/material';
 import { doc, collection, writeBatch, getDoc } from 'firebase/firestore';
@@ -18,6 +20,7 @@ const gradients = [
 ];
 
 export default function Generate() {
+    const [savedCards, setSavedCards] = useState([]);
     const { isLoaded, isSignedIn, user } = useUser();
     const [flashcards, setFlashcards] = useState([]);
     const [flipped, setFlipped] = useState([]);
@@ -60,6 +63,16 @@ export default function Generate() {
         setOpen(false);
     };
 
+    const handleSaveCard = (index) => {
+        const cardToSave = flashcards[index];
+        setSavedCards(prev => {
+            if (prev.includes(cardToSave)) {
+                return prev.filter(card => card !== cardToSave);
+            }
+            return [...prev, cardToSave];
+        });
+    };
+
     const saveFlashCards = async () => {
         if (!name) return alert('Please enter a name');
 
@@ -88,6 +101,14 @@ export default function Generate() {
         handleClose();
         router.push('/flashcards');
     };
+
+    const handleDeleteCard = (index) => {
+        setSavedCards((prevSavedCards) => {
+
+            return prevSavedCards.filter((_, i) => i !== index);
+        });
+    };
+
 
     return (
         <Box
@@ -211,6 +232,7 @@ export default function Generate() {
                                                         background: gradients[index % gradients.length],
                                                         boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
                                                         borderRadius: 2,
+                                                        position: 'relative',
                                                     }}
                                                 >
                                                     <CardActionArea
@@ -238,20 +260,31 @@ export default function Generate() {
                                                             </Typography>
                                                         </CardContent>
                                                     </CardActionArea>
+                                                    <IconButton
+                                                        sx={{
+                                                            position: 'absolute',
+                                                            top: 8,
+                                                            right: 8,
+                                                            color: savedCards.includes(flashcard) ? '#C4A3C4' : '#757575',
+                                                        }}
+                                                        onClick={() => handleSaveCard(index)}
+                                                    >
+                                                        {savedCards.includes(flashcard) ? <Bookmark /> : <BookmarkBorder />}
+                                                    </IconButton>
                                                 </Card>
                                             </Grid>
                                         ))}
                                     </Grid>
                                     <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
-                                        <Button 
-                                            variant="contained" 
+                                        <Button
+                                            variant="contained"
                                             sx={{
                                                 borderRadius: 2,
                                                 backgroundColor: '#C4A3C4', // Match "Generate" button color
                                                 '&:hover': {
                                                     backgroundColor: '#B48CB9', // Darker shade on hover
                                                 }
-                                            }} 
+                                            }}
                                             onClick={handleOpen}
                                         >
                                             Save Flashcards
@@ -267,9 +300,70 @@ export default function Generate() {
 
                     {selectedTab === 1 && (
                         <Box sx={{ p: 3 }}>
-                            <Typography variant="body1" sx={{ textAlign: 'center' }}>No saved cards available.</Typography>
+                            {savedCards.length > 0 ? (
+                                <Grid container spacing={2}>
+                                    {savedCards.map((flashcard, index) => (
+                                        <Grid item xs={12} sm={6} md={4} key={index}>
+                                            <Card
+                                                sx={{
+                                                    height: 250,
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    justifyContent: 'center',
+                                                    perspective: 1000,
+                                                    background: gradients[index % gradients.length],
+                                                    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+                                                    borderRadius: 2,
+                                                    position: 'relative',
+                                                }}
+                                            >
+                                                <CardActionArea
+                                                    sx={{
+                                                        width: '100%',
+                                                        height: '100%',
+                                                        position: 'relative',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                        transformStyle: 'preserve-3d',
+                                                        transition: 'transform 0.6s ease',
+                                                        transform: flipped[index + flashcards.length] ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                                                    }}
+                                                    onClick={() => handleCardClick(index + flashcards.length)}
+                                                >
+                                                    <CardContent sx={{ position: 'absolute', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', backfaceVisibility: 'hidden' }}>
+                                                        <Typography variant="h6" sx={{ textAlign: 'center', padding: 2, color: '#000' }}>
+                                                            {flashcard.front}
+                                                        </Typography>
+                                                    </CardContent>
+                                                    <CardContent sx={{ position: 'absolute', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', transform: 'rotateY(180deg)', backfaceVisibility: 'hidden' }}>
+                                                        <Typography variant="h6" sx={{ textAlign: 'center', padding: 2, color: '#000' }}>
+                                                            {flashcard.back}
+                                                        </Typography>
+                                                    </CardContent>
+                                                </CardActionArea>
+                                                <IconButton
+                                                    sx={{
+                                                        position: 'absolute',
+                                                        top: 8,
+                                                        left: 8,
+                                                        color: '#757575',
+                                                    }}
+                                                    onClick={() => handleDeleteCard(index)}
+                                                >
+                                                    <Delete />
+                                                </IconButton>
+
+                                            </Card>
+                                        </Grid>
+                                    ))}
+                                </Grid>
+                            ) : (
+                                <Typography variant="body1" sx={{ textAlign: 'center' }}>No saved cards available.</Typography>
+                            )}
                         </Box>
                     )}
+
 
                     {selectedTab === 2 && (
                         <Box sx={{ p: 3 }}>
@@ -300,8 +394,8 @@ export default function Generate() {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button 
-                        variant="outlined" 
+                    <Button
+                        variant="outlined"
                         onClick={handleClose}
                         sx={{
                             borderRadius: 2,
@@ -315,9 +409,9 @@ export default function Generate() {
                     >
                         Cancel
                     </Button>
-                    <Button 
-                        variant="contained" 
-                        color="primary" 
+                    <Button
+                        variant="contained"
+                        color="primary"
                         onClick={saveFlashCards}
                         sx={{
                             borderRadius: 2,
