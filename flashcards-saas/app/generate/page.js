@@ -212,7 +212,7 @@ export default function Generate() {
                     <Tabs value={selectedTab} onChange={handleTabChange} centered>
                         <Tab label="Preview" sx={{ minWidth: 'unset', color: selectedTab === 0 ? '#FF6F6F' : '#333', fontWeight: selectedTab === 0 ? 'bold' : 'normal' }} />
                         <Tab label="Saved Cards" sx={{ minWidth: 'unset', color: selectedTab === 1 ? '#FF6F6F' : '#333', fontWeight: selectedTab === 1 ? 'bold' : 'normal' }} />
-                        <Tab label="History" sx={{ minWidth: 'unset', color: selectedTab === 2 ? '#FF6F6F' : '#333', fontWeight: selectedTab === 2 ? 'bold' : 'normal' }} />
+                        {/* <Tab label="History" sx={{ minWidth: 'unset', color: selectedTab === 2 ? '#FF6F6F' : '#333', fontWeight: selectedTab === 2 ? 'bold' : 'normal' }} /> */}
                     </Tabs>
 
                     {selectedTab === 0 && (
@@ -280,9 +280,9 @@ export default function Generate() {
                                             variant="contained"
                                             sx={{
                                                 borderRadius: 2,
-                                                backgroundColor: '#C4A3C4', // Match "Generate" button color
+                                                backgroundColor: '#C4A3C4',
                                                 '&:hover': {
-                                                    backgroundColor: '#B48CB9', // Darker shade on hover
+                                                    backgroundColor: '#B48CB9',
                                                 }
                                             }}
                                             onClick={handleOpen}
@@ -399,10 +399,10 @@ export default function Generate() {
                         onClick={handleClose}
                         sx={{
                             borderRadius: 2,
-                            borderColor: '#C4A3C4', // Match "Generate" button color
+                            borderColor: '#C4A3C4',
                             color: '#C4A3C4',
                             '&:hover': {
-                                borderColor: '#B48CB9', // Darker shade on hover
+                                borderColor: '#B48CB9',
                                 color: '#B48CB9',
                             }
                         }}
@@ -412,12 +412,12 @@ export default function Generate() {
                     <Button
                         variant="contained"
                         color="primary"
-                        onClick={saveFlashCards}
+                        // onClick={saveFlashCards}
                         sx={{
                             borderRadius: 2,
-                            backgroundColor: '#C4A3C4', // Match "Generate" button color
+                            backgroundColor: '#C4A3C4',
                             '&:hover': {
-                                backgroundColor: '#B48CB9', // Darker shade on hover
+                                backgroundColor: '#B48CB9',
                             }
                         }}
                     >
