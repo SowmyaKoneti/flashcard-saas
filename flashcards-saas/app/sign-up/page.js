@@ -5,6 +5,27 @@ import Head from 'next/head';
 
 export default function SignUpPage() {
   return (
+    <Box
+      sx={{
+        position: 'relative',
+        minHeight: '100vh',
+        padding: 0,
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundImage: 'url(/cover-image.webp)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          opacity: 0.9,
+          zIndex: -1,
+        }
+      }}
+    >
     <Container maxWidth="sm">
       <Head>
         <title>Sign Up - Flashcard SaaS</title>
@@ -12,19 +33,20 @@ export default function SignUpPage() {
         <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Dancing+Script&display=swap" rel="stylesheet" />
       </Head>
       <br></br>
-      <AppBar position="static" sx={{ backgroundColor: "#D8BFD8" }}>
+      <AppBar position="static" sx={{ backgroundColor: "white" }}>
         <Toolbar>
           <Typography
             variant="h5"
             sx={{
               flexGrow: 1,
-              fontFamily: 'Lobster, cursive',
-              fontWeight: 700,
+              fontFamily: 'Lobster',
+              fontWeight: 'bold',
+              color: '#9c27b0'
             }}
           >
             Custom Flashcards 
           </Typography>
-          <Button color="inherit" sx={{ fontFamily: 'Dancing Script, cursive' }}>
+          <Button color="inherit" sx={{ fontFamily: 'Lobster', fontWeight: 'bold' }}>
             <Link href="/sign-in" passHref>
               Login
             </Link>
@@ -41,9 +63,9 @@ export default function SignUpPage() {
         <Typography
           variant="h4"
           sx={{
-            fontFamily: 'Lobster, cursive',
-            fontWeight: 700,
-            color: '#C4A3C4', // Darker lavender shade matching the "Get Started" button
+            fontFamily: 'Lobster',
+            fontWeight: 'bold',
+            color: '#9c27b0', // Darker lavender shade matching the "Get Started" button
           }}
         >
           Sign Up
@@ -52,5 +74,6 @@ export default function SignUpPage() {
         <SignUp routing="hash" />
       </Box>
     </Container>
+    </Box>
   );
 }
