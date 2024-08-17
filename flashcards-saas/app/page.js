@@ -136,11 +136,15 @@ export default function Home() {
               '&:hover': {
                 bgcolor: '#6d1b7b', // Darker shade of lavender
               },
+              padding: '12px 24px',
+              fontSize: '1.2rem',
+              minWidth: '150px',
             }}
             href="/generate"
           >
             Create Now
           </Button>
+
         </Box>
         <Box
           sx={{ my: 5, textAlign: 'left' }}
