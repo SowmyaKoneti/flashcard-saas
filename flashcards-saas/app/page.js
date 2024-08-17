@@ -153,7 +153,7 @@ export default function Home() {
           <Typography variant="h3" component="h2" gutterBottom color="white" sx={{ textAlign: 'center', fontWeight: 700, mb: 5 }}>
             Pricing
           </Typography>
-          <Grid container spacing={0} justifyContent="center">
+          <Grid container spacing={5} justifyContent="center">
 
 
             <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: 'center' }}>
