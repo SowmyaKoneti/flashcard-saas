@@ -121,7 +121,9 @@ export default function Home() {
           <Typography variant="h5" component="h2" gutterBottom color="white" sx={{ fontFamily: 'Lobster', fontStyle: 'italic', fontWeight: 'light' }}>
             Master Any Subject with Intelligent Flashcards
             <br />
-            Boost your learning efficiency with our customizable flashcards. Create, save, and review cards effortlessly—anytime, anywhere.
+            Boost your learning efficiency with our customizable flashcards. 
+            <br />
+            Create, save, and review cards effortlessly—anytime, anywhere.
           </Typography>
           <Button
             variant="contained"
@@ -135,7 +137,7 @@ export default function Home() {
             }}
             href="/generate"
           >
-            Get Started
+            Create Now
           </Button>
         </Box>
         <Box
@@ -143,7 +145,7 @@ export default function Home() {
           onMouseEnter={handlePricingHover}
           ref={pricingRef}
         >
-          <Typography variant="h3" component="h2" gutterBottom color="white" sx={{ fontFamily: 'Dancing Script', textAlign: 'center', fontWeight: 700 }}>
+          <Typography variant="h3" component="h2" gutterBottom color="white" sx={{ textAlign: 'center', fontWeight: 700 }}>
             Pricing
           </Typography>
           <Grid container spacing={4} justifyContent="center">
@@ -160,10 +162,10 @@ export default function Home() {
                   transform: 'scale(1.05)', // Slightly scale the box up to create the pop effect
                 }
               }}>
-                <Typography variant="h4" gutterBottom color="white" sx={{ fontFamily: 'Dancing Script', fontWeight: 'bold' }}>
+                <Typography variant="h4" gutterBottom color="white" sx={{ fontWeight: 'bold' }}>
                   Basic
                 </Typography>
-                <Typography variant="h6" gutterBottom color="white" sx={{ fontFamily: 'Lobster', fontWeight: 'bold' }}>
+                <Typography variant="h6" gutterBottom color="white" sx={{ fontWeight: 'bold' }}>
                   $5 / month
                 </Typography>
                 <Typography color="white" sx={{ fontFamily: 'Lobster', fontStyle: 'italic', fontWeight: 'medium' }}>
@@ -201,10 +203,10 @@ export default function Home() {
                   transform: 'scale(1.05)', // Slightly scale the box up to create the pop effect
                 }
               }}>
-                <Typography variant="h4" gutterBottom color="white" sx={{ fontFamily: 'Dancing Script', fontWeight: 'bold' }}>
+                <Typography variant="h4" gutterBottom color="white" sx={{ fontWeight: 'bold' }}>
                   Pro
                 </Typography>
-                <Typography variant="h6" gutterBottom color="white" sx={{ fontFamily: 'Lobster', fontWeight: 'bold' }}>
+                <Typography variant="h6" gutterBottom color="white" sx={{ fontWeight: 'bold' }}>
                   $10 / month
                 </Typography>
                 <Typography color="white" sx={{ fontFamily: 'Lobster', fontStyle: 'italic', fontWeight: 'medium' }}>
