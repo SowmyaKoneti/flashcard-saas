@@ -1,6 +1,31 @@
-
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.background-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #FFDEE9, #B5AAFF, #C3E0E5, #D4B2E2, #F6F9FC, #E6E9F0);
+  background-size: 200% 200%;
+  animation: gradientAnimation 15s ease infinite;
+  z-index: -1;
 }

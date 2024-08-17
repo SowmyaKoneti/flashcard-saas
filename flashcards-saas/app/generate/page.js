@@ -2,7 +2,6 @@
 import { Bookmark, BookmarkBorder, Delete } from '@mui/icons-material';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-
 import { useUser } from '@clerk/nextjs';
 import {
     IconButton, Container, Box, Typography, Button, Grid, Card, CardActionArea, CardContent,
@@ -116,6 +115,7 @@ export default function Generate() {
                 position: 'relative',
                 minHeight: '100vh',
                 padding: 0,
+                overflow: 'hidden',
                 '&::before': {
                     content: '""',
                     position: 'absolute',
@@ -123,18 +123,59 @@ export default function Generate() {
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    backgroundImage: 'url(/image.png)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                    opacity: 0.5,
+                    background: 'linear-gradient(180deg, #FFDEE9 0%, #B5AAFF 50%, #C3E0E5 100%)',
+                    backgroundSize: '200% 200%',
+                    animation: 'backgroundAnimation 10s ease infinite',
                     zIndex: -1,
-                }
+                    opacity: 0.8,
+                },
+                '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    background: 'radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent)',
+                    animation: 'twinkle 3s infinite ease-in-out',
+                    zIndex: -1,
+                    opacity: 0.6,
+                },
+                '@keyframes backgroundAnimation': {
+                    '0%': {
+                        backgroundPosition: '0% 0%',
+                    },
+                    '50%': {
+                        backgroundPosition: '100% 100%',
+                    },
+                    '100%': {
+                        backgroundPosition: '0% 0%',
+                    },
+                },
+                '@keyframes twinkle': {
+                    '0%, 100%': {
+                        opacity: 0.5,
+                    },
+                    '50%': {
+                        opacity: 1,
+                    },
+                },
             }}
         >
+
             <Container maxWidth="md">
                 <Box sx={{ mb: 6, textAlign: 'center' }}>
-                    <Typography variant="h4" sx={{ paddingTop: 4 }} gutterBottom>Create Flashcards</Typography>
+                    <Typography
+                        variant="h4"
+                        sx={{
+                            paddingTop: 4,
+                            color: '#FFFFFF', // White color
+                            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', // Shadow effect
+                        }}
+                        gutterBottom
+                    >
+                        Create Flashcards
+                    </Typography>
                     <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, maxWidth: 600, mx: 'auto', mt: 4 }}>
                         <TextField
                             value={text}
