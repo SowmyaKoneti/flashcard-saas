@@ -131,6 +131,7 @@ export default function Generate() {
             }
           }}
         >
+            <br/>
             <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-start', mb: 2 }}>
                 <Button href="/" sx={{ color: '#9c27b0', display: 'flex', alignItems: 'center' }}>
                     <HomeIcon fontSize="large" sx={{ mr: 1 }} /> {/* Add margin-right to space icon from text */}
