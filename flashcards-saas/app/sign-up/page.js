@@ -18,7 +18,7 @@ export default function SignUpPage() {
           width: '100%',
           height: '100%',
           backgroundColor: 'black',
-          backgroundImage: 'url(/download.jpeg)',
+          backgroundImage: 'url(/image.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -34,25 +34,6 @@ export default function SignUpPage() {
         <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Dancing+Script&display=swap" rel="stylesheet" />
       </Head>
       <br></br>
-      <AppBar position="static" sx={{ backgroundColor: "white" }}>
-        <Toolbar>
-          <Typography
-            variant="h5"
-            sx={{
-              flexGrow: 1,
-              fontWeight: 'bold',
-              color: '#9c27b0'
-            }}
-          >
-            Custom Flashcards 
-          </Typography>
-          <Button color="inherit" sx={{ fontFamily: 'Lobster', fontWeight: 'bold' }}>
-            <Link href="/sign-in" passHref>
-              Login
-            </Link>
-          </Button>
-        </Toolbar>
-      </AppBar>
       <Box
         display="flex"
         flexDirection="column"
