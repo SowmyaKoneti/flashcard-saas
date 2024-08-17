@@ -9,6 +9,7 @@ import {
 } from '@mui/material';
 import { doc, collection, writeBatch, getDoc } from 'firebase/firestore';
 import { db } from '@/firebase';
+import HomeIcon from '@mui/icons-material/Home';
 
 const gradients = [
     'linear-gradient(135deg, #FFDEE9 0%, #B5AAFF 100%)',
@@ -130,6 +131,12 @@ export default function Generate() {
             }
           }}
         >
+            <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-start', mb: 2 }}>
+                <Button href="/" sx={{ color: '#9c27b0', display: 'flex', alignItems: 'center' }}>
+                    <HomeIcon fontSize="large" sx={{ mr: 1 }} /> {/* Add margin-right to space icon from text */}
+                    Home
+                </Button>
+            </Box>
           <Container maxWidth="md">
             <Box sx={{ mb: 6, textAlign: 'center' }}>
               <Typography variant="h4" sx={{ paddingTop: 4, color: 'white', fontWeight: 'bold' }} gutterBottom>
