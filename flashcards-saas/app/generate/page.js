@@ -147,10 +147,10 @@ export default function Generate() {
                     minWidth: 200,
                     borderRadius: 2,
                     backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19)',
+                    boxShadow: '0 4px 8px rgba(255, 255, 255, 0.1), 0 6px 20px rgba(255, 255, 255, 0.1)', // Light shadow for black background
                     transition: 'box-shadow 0.3s ease-in-out',
                     '&:hover': {
-                      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.4), 0 12px 40px rgba(0, 0, 0, 0.38)',
+                      boxShadow: '0 8px 16px rgba(255, 255, 255, 0.2), 0 12px 40px rgba(255, 255, 255, 0.3), 0 0 15px rgba(255, 255, 255, 0.3)', // Enhanced shadow and light effect on hover
                     },
                     '& .MuiOutlinedInput-root': {
                       '& fieldset': {
@@ -194,16 +194,16 @@ export default function Generate() {
             </Box>
       
             <Box
-              sx={{
+             sx={{
                 width: '100%',
                 maxWidth: '1800px',
                 backgroundColor: 'transparent',
-                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.15)',
+                boxShadow: '0 4px 8px rgba(255, 255, 255, 0.1), 0 8px 16px rgba(255, 255, 255, 0.1)', // Lighter shadow to contrast with the black background
                 padding: 3,
                 margin: 'auto',
                 transition: 'box-shadow 0.3s ease, background-color 0.3s ease',
                 '&:hover': {
-                  boxShadow: '0 6px 12px rgba(0, 0, 0, 0.3), 0 12px 24px rgba(0, 0, 0, 0.25)',
+                  boxShadow: '0 6px 12px rgba(255, 255, 255, 0.2), 0 12px 24px rgba(255, 255, 255, 0.2), 0 0 15px rgba(255, 255, 255, 0.3)', // Increased shadow intensity and light glow effect
                 },
               }}
             >
@@ -227,7 +227,8 @@ export default function Generate() {
                                 justifyContent: 'center',
                                 perspective: 1000,
                                 background: gradients[index % gradients.length],
-                                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+                                // boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+                                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1), 0px 0px 10px rgba(255, 255, 255, 0.2)',
                                 borderRadius: 2,
                                 position: 'relative',
                               }}
@@ -293,7 +294,8 @@ export default function Generate() {
                               justifyContent: 'center',
                               perspective: 1000,
                               background: gradients[index % gradients.length],
-                              boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+                            //   boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+                              boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1), 0px 0px 10px rgba(255, 255, 255, 0.2)',
                               borderRadius: 2,
                               position: 'relative',
                             }}
