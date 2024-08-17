@@ -59,6 +59,7 @@ export default function Home() {
         position: 'relative',
         minHeight: '100vh',
         padding: 0,
+        overflow: 'hidden',
         '&::before': {
           content: '""',
           position: 'absolute',
@@ -149,18 +150,24 @@ export default function Home() {
           <Typography variant="h3" component="h2" gutterBottom color="white" sx={{ textAlign: 'center', fontWeight: 700 }}>
             Pricing
           </Typography>
-          <Grid container spacing={4} justifyContent="center">
-            <Grid item xs={12} md={6}>
+          <Grid container spacing={0} justifyContent="center">
+            <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center' }}>
               <Box sx={{
                 p: 3,
+                width: 250, // Fixed width
+                height: 250, // Fixed height to maintain a square shape
                 border: "1px solid",
-                borderColor: "grey.800", // Darker grey to match app background
+                borderColor: "grey.800",
                 borderRadius: 2,
-                transition: 'box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out', // Smooth transition for the shadow and transform
-                boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.2)', // Initial subtle shadow
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center', // Center content vertically
+                alignItems: 'center', // Center content horizontally
+                transition: 'box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out',
+                boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.2)',
                 '&:hover': {
-                  boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5), 0px 0px 15px rgba(255, 255, 255, 0.3)', // Shadow with light effect on hover
-                  transform: 'scale(1.05)', // Slightly scale the box up to create the pop effect
+                  boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5), 0px 0px 15px rgba(255, 255, 255, 0.3)',
+                  transform: 'scale(1.05)',
                 }
               }}>
                 <Typography variant="h4" gutterBottom color="white" sx={{ fontWeight: 'bold' }}>
@@ -191,17 +198,23 @@ export default function Home() {
                 </Button>
               </Box>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center' }}>
               <Box sx={{
                 p: 3,
+                width: 250, // Fixed width
+                height: 250, // Fixed height to maintain a square shape
                 border: "1px solid",
-                borderColor: "grey.800", // Darker grey to match app background
+                borderColor: "grey.800",
                 borderRadius: 2,
-                transition: 'box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out', // Smooth transition for the shadow and transform
-                boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.2)', // Initial subtle shadow
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center', // Center content vertically
+                alignItems: 'center', // Center content horizontally
+                transition: 'box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out',
+                boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.2)',
                 '&:hover': {
-                  boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5), 0px 0px 15px rgba(255, 255, 255, 0.3)', // Shadow with light effect on hover
-                  transform: 'scale(1.05)', // Slightly scale the box up to create the pop effect
+                  boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5), 0px 0px 15px rgba(255, 255, 255, 0.3)',
+                  transform: 'scale(1.05)',
                 }
               }}>
                 <Typography variant="h4" gutterBottom color="white" sx={{ fontWeight: 'bold' }}>
@@ -234,7 +247,7 @@ export default function Home() {
             </Grid>
           </Grid>
           <Box
-            sx={{ mt: 4 }}
+            sx={{ mt: 4, display: 'flex', justifyContent: 'center', alignItems: 'center' }}
             ref={checkoutRef}
           >
             <Button
