@@ -53,6 +53,8 @@ export default function Home() {
     }
   };
 
+
+
   return (
     <Box
       sx={{
@@ -191,7 +193,6 @@ export default function Home() {
                     },
                   }}
                   onClick={() => {
-                    setSubscriptionType('basic');
                     handleSubmit();
                   }}
                 >
