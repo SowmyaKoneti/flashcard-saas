@@ -39,7 +39,6 @@ export default function SignUpPage() {
             variant="h5"
             sx={{
               flexGrow: 1,
-              fontFamily: 'Lobster',
               fontWeight: 'bold',
               color: '#9c27b0'
             }}
@@ -63,7 +62,6 @@ export default function SignUpPage() {
         <Typography
           variant="h4"
           sx={{
-            fontFamily: 'Lobster',
             fontWeight: 'bold',
             color: '#9c27b0', // Darker lavender shade matching the "Get Started" button
           }}
