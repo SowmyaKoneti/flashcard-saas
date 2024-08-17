@@ -120,8 +120,19 @@ export default function Home() {
             <span style={{ color: '#9c27b0' }}> AI </span>
             <span style={{ color: 'white' }}>Flashcards</span>
           </Typography>
-          <Typography variant="h5" component="h3" gutterBottom color="white" sx={{ fontFamily: 'Ariel', fontWeight: 'light' }}>
-            Master Any Subject with Intelligent Flashcards
+          <Typography
+            variant="h5"
+            component="h3"
+            gutterBottom
+            color="white"
+            sx={{
+              fontFamily: 'sans-serif',
+              fontWeight: 300,
+              fontSize: '1.5rem',
+              lineHeight: 1.6,
+              letterSpacing: '0.02em',
+            }}
+          >  Master Any Subject with Intelligent Flashcards
             <br />
             Boost your learning efficiency with our customizable flashcards.
             <br />
