@@ -120,7 +120,7 @@ export default function Home() {
             <span style={{ color: '#9c27b0' }}> AI </span>
             <span style={{ color: 'white' }}>Flashcards</span>
           </Typography>
-          <Typography variant="h5" component="h3" gutterBottom color="white" sx={{  fontFamily: 'Ariel', fontWeight: 'light' }}>
+          <Typography variant="h5" component="h3" gutterBottom color="white" sx={{ fontFamily: 'Ariel', fontWeight: 'light' }}>
             Master Any Subject with Intelligent Flashcards
             <br />
             Boost your learning efficiency with our customizable flashcards.
@@ -147,11 +147,60 @@ export default function Home() {
           onMouseEnter={handlePricingHover}
           ref={pricingRef}
         >
-          <Typography variant="h3" component="h2" gutterBottom color="white" sx={{ textAlign: 'center', fontWeight: 700 }}>
+          <Typography variant="h3" component="h2" gutterBottom color="white" sx={{ textAlign: 'center', fontWeight: 700, mb: 5 }}>
             Pricing
           </Typography>
           <Grid container spacing={0} justifyContent="center">
-            <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center' }}>
+
+
+            <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: 'center' }}>
+              <Box sx={{
+                p: 3,
+                width: 250,
+                height: 250,
+                border: "1px solid",
+                borderColor: "grey.800",
+                borderRadius: 2,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                transition: 'box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out',
+                boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.2)',
+                '&:hover': {
+                  boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5), 0px 0px 15px rgba(255, 255, 255, 0.3)',
+                  transform: 'scale(1.05)',
+                }
+              }}>
+                <Typography variant="h4" gutterBottom color="white" sx={{ fontWeight: 'bold' }}>
+                  Free
+                </Typography>
+                {/* <Typography variant="h6" gutterBottom color="white" sx={{ fontWeight: 'bold' }}>
+                  $5 / month
+                </Typography> */}
+                <Typography color="white" sx={{ fontFamily: 'Ariel', fontWeight: 'medium' }}>
+                  Access to basic flashcard features with upto 10 cards storage.
+                </Typography>
+                <Button
+                  variant="contained"
+                  sx={{
+                    mt: 2,
+                    bgcolor: '#9c27b0',
+                    '&:hover': {
+                      bgcolor: '#6d1b7b',
+                    },
+                  }}
+                  onClick={() => {
+                    setSubscriptionType('basic');
+                    handleSubmit();
+                  }}
+                >
+                  Choose Free
+                </Button>
+              </Box>
+            </Grid>
+
+            <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: 'center' }}>
               <Box sx={{
                 p: 3,
                 width: 250, // Fixed width
@@ -161,8 +210,8 @@ export default function Home() {
                 borderRadius: 2,
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'center', // Center content vertically
-                alignItems: 'center', // Center content horizontally
+                justifyContent: 'center',
+                alignItems: 'center',
                 transition: 'box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out',
                 boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.2)',
                 '&:hover': {
@@ -177,7 +226,6 @@ export default function Home() {
                   $5 / month
                 </Typography>
                 <Typography color="white" sx={{ fontFamily: 'Ariel', fontWeight: 'medium' }}>
-                  {" "}
                   Access to basic flashcard features and limited storage.
                 </Typography>
                 <Button
@@ -198,18 +246,19 @@ export default function Home() {
                 </Button>
               </Box>
             </Grid>
-            <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center' }}>
+
+            <Grid item xs={12} md={4} sx={{ display: 'flex', justifyContent: 'center' }}>
               <Box sx={{
                 p: 3,
-                width: 250, // Fixed width
-                height: 250, // Fixed height to maintain a square shape
+                width: 250,
+                height: 250,
                 border: "1px solid",
                 borderColor: "grey.800",
                 borderRadius: 2,
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'center', // Center content vertically
-                alignItems: 'center', // Center content horizontally
+                justifyContent: 'center',
+                alignItems: 'center',
                 transition: 'box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out',
                 boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.2)',
                 '&:hover': {
@@ -224,16 +273,15 @@ export default function Home() {
                   $10 / month
                 </Typography>
                 <Typography color="white" sx={{ fontFamily: 'Ariel', fontWeight: 'medium' }}>
-                  {" "}
                   Unlimited flashcards and storage, with priority support.
                 </Typography>
                 <Button
                   variant="contained"
                   sx={{
                     mt: 2,
-                    bgcolor: '#9c27b0', // light lavender
+                    bgcolor: '#9c27b0',
                     '&:hover': {
-                      bgcolor: '#6d1b7b', // Darker shade of lavender
+                      bgcolor: '#6d1b7b',
                     },
                   }}
                   onClick={() => {
@@ -246,6 +294,7 @@ export default function Home() {
               </Box>
             </Grid>
           </Grid>
+
           <Box
             sx={{ mt: 4, display: 'flex', justifyContent: 'center', alignItems: 'center' }}
             ref={checkoutRef}
