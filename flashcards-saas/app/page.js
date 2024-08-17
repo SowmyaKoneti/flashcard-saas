@@ -113,11 +113,11 @@ export default function Home() {
           </SignedIn>
         </Stack>
         <Box sx={{ textAlign: 'center', my: 4 }}>
-        <Typography variant="h2" component="h1" gutterBottom fontWeight="bold">
-          <span style={{ color: 'white' }}>Custom</span> 
-          <span style={{ color: '#9c27b0' }}> AI </span> 
-          <span style={{ color: 'white' }}>Flashcards</span>
-        </Typography>
+          <Typography variant="h2" component="h1" gutterBottom fontWeight="bold">
+            <span style={{ color: 'white' }}>Custom</span>
+            <span style={{ color: '#9c27b0' }}> AI </span>
+            <span style={{ color: 'white' }}>Flashcards</span>
+          </Typography>
           <Typography variant="h5" component="h2" gutterBottom color="white" sx={{ fontFamily: 'Lobster', fontStyle: 'italic', fontWeight: 'light' }}>
             Master Any Subject with Intelligent Flashcards
             <br />

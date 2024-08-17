@@ -121,20 +121,18 @@ export default function Generate() {
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    backgroundImage: 'url(/cover-image.webp)',
+                    backgroundImage: 'url(/image.png)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat',
-                    opacity: 0.9,
+                    opacity: 0.5,
                     zIndex: -1,
                 }
             }}
         >
             <Container maxWidth="md">
                 <Box sx={{ mb: 6, textAlign: 'center' }}>
-                    <Typography variant="h3" sx={{ paddingTop: 4, color: 'white', fontFamily: 'Dancing Script', fontWeight: 'bold' }} gutterBottom>
-                        Create Flashcards
-                    </Typography>
+                    <Typography variant="h4" sx={{ paddingTop: 4 }} gutterBottom>Create Flashcards</Typography>
                     <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, maxWidth: 600, mx: 'auto', mt: 4 }}>
                         <TextField
                             value={text}
@@ -146,7 +144,7 @@ export default function Generate() {
                                 flex: 1,
                                 minWidth: 200,
                                 borderRadius: 2,
-                                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                                backgroundColor: 'background.paper',
                                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19)',
                                 transition: 'box-shadow 0.3s ease-in-out',
                                 '&:hover': {
@@ -154,25 +152,26 @@ export default function Generate() {
                                 },
                                 '& .MuiOutlinedInput-root': {
                                     '& fieldset': {
-                                        borderColor: 'grey.500',
+                                        borderColor: 'divider',
                                     },
                                     '&:hover fieldset': {
-                                        borderColor: 'grey.500',
+                                        borderColor: 'divider',
                                     },
                                     '&.Mui-focused fieldset': {
-                                        borderColor: '#9c27b0',
+                                        borderColor: '#D3B5E0',
                                     },
                                 },
                                 '& .MuiInputLabel-root': {
-                                    color: 'white',
+                                    color: 'text.secondary',
                                     '&.Mui-focused': {
-                                        color: '#9c27b0',
+                                        color: 'grey',
                                     },
                                 },
+
                             }}
                             InputProps={{
                                 sx: {
-                                    color: 'white',
+                                    borderColor: 'divider',
                                 }
                             }}
                         />
@@ -181,9 +180,9 @@ export default function Generate() {
                             variant="contained"
                             sx={{
                                 borderRadius: 2,
-                                backgroundColor: '#9c27b0', // Button color
+                                backgroundColor: '#C4A3C4', // '#C3B1E1' Purple color
                                 '&:hover': {
-                                    backgroundColor: '#6d1b7b', // Darker shade of button color
+                                    backgroundColor: '#B48CB9', // '#7b1fa2' Darker shade of purple for hover effect
                                 }
                             }}
                             onClick={handleSubmit}
@@ -201,17 +200,17 @@ export default function Generate() {
                         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.15)',
                         padding: 3,
                         margin: 'auto',
-                        transition: 'box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out', // Smooth transition for the shadow and transform
-                        boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.2)', // Initial subtle shadow
+                        transition: 'box-shadow 0.3s ease, background-color 0.3s ease',
                         '&:hover': {
-                            boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5), 0px 0px 15px rgba(255, 255, 255, 0.3)', // Shadow with light effect on hover
-                            transform: 'scale(1.05)',
+                            boxShadow: '0 6px 12px rgba(0, 0, 0, 0.3), 0 12px 24px rgba(0, 0, 0, 0.25)',
                         },
+
                     }}
                 >
                     <Tabs value={selectedTab} onChange={handleTabChange} centered>
-                        <Tab label="Preview" sx={{ minWidth: 'unset', color: selectedTab === 0 ? '#9c27b0' : 'white', fontWeight: selectedTab === 0 ? 'bold' : 'normal' }} />
-                        <Tab label="Saved Cards" sx={{ minWidth: 'unset', color: selectedTab === 1 ? '#9c27b0' : 'white', fontWeight: selectedTab === 1 ? 'bold' : 'normal' }} />
+                        <Tab label="Preview" sx={{ minWidth: 'unset', color: selectedTab === 0 ? '#FF6F6F' : '#333', fontWeight: selectedTab === 0 ? 'bold' : 'normal' }} />
+                        <Tab label="Saved Cards" sx={{ minWidth: 'unset', color: selectedTab === 1 ? '#FF6F6F' : '#333', fontWeight: selectedTab === 1 ? 'bold' : 'normal' }} />
+                        {/* <Tab label="History" sx={{ minWidth: 'unset', color: selectedTab === 2 ? '#FF6F6F' : '#333', fontWeight: selectedTab === 2 ? 'bold' : 'normal' }} /> */}
                     </Tabs>
 
                     {selectedTab === 0 && (
@@ -264,7 +263,7 @@ export default function Generate() {
                                                             position: 'absolute',
                                                             top: 8,
                                                             right: 8,
-                                                            color: savedCards.includes(flashcard) ? '#9c27b0' : '#757575',
+                                                            color: savedCards.includes(flashcard) ? '#C4A3C4' : '#757575',
                                                         }}
                                                         onClick={() => handleSaveCard(index)}
                                                     >
@@ -274,11 +273,27 @@ export default function Generate() {
                                             </Grid>
                                         ))}
                                     </Grid>
+                                    {/* <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+                                          <Button
+                                              variant="contained"
+                                              sx={{
+                                                  borderRadius: 2,
+                                                  backgroundColor: '#C4A3C4',
+                                                  '&:hover': {
+                                                      backgroundColor: '#B48CB9',
+                                                  }
+                                              }}
+                                              onClick={handleOpen}
+                                          >
+                                              Save Flashcards
+                                          </Button>
+                                      </Box> */}
                                 </Box>
                             ) : (
-                                <Typography variant="body1" sx={{ textAlign: 'center', color: 'white' }}>No flashcards to display.</Typography>
+                                <Typography variant="body1" sx={{ textAlign: 'center' }}>No flashcards to display.</Typography>
                             )}
                         </Box>
+
                     )}
 
                     {selectedTab === 1 && (
@@ -342,17 +357,27 @@ export default function Generate() {
                                     ))}
                                 </Grid>
                             ) : (
-                                <Typography variant="body1" sx={{ textAlign: 'center', color: 'white' }}>No saved cards available.</Typography>
+                                <Typography variant="body1" sx={{ textAlign: 'center' }}>No saved cards available.</Typography>
                             )}
                         </Box>
                     )}
+
+
+                    {selectedTab === 2 && (
+                        <Box sx={{ p: 3 }}>
+                            <Typography variant="body1" sx={{ textAlign: 'center' }}>No viewed cards available.</Typography>
+                        </Box>
+                    )}
+
                 </Box>
+
+
             </Container>
 
             <Dialog open={open} onClose={handleClose}>
-                <DialogTitle sx={{ color: '#9c27b0', fontFamily: 'Lobster' }}>Save Flashcards</DialogTitle>
+                <DialogTitle>Save Flashcards</DialogTitle>
                 <DialogContent>
-                    <DialogContentText sx={{ color: 'grey.700', fontFamily: 'Lobster' }}>
+                    <DialogContentText>
                         Please enter a name for your flashcard set.
                     </DialogContentText>
                     <TextField
@@ -363,26 +388,7 @@ export default function Generate() {
                         fullWidth
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        sx={{
-                            mb: 2,
-                            '& .MuiOutlinedInput-root': {
-                                '& fieldset': {
-                                    borderColor: 'grey.500',
-                                },
-                                '&:hover fieldset': {
-                                    borderColor: 'grey.500',
-                                },
-                                '&.Mui-focused fieldset': {
-                                    borderColor: '#9c27b0',
-                                },
-                            },
-                            '& .MuiInputLabel-root': {
-                                color: 'grey.700',
-                                '&.Mui-focused': {
-                                    color: '#9c27b0',
-                                },
-                            },
-                        }}
+                        sx={{ mb: 2 }}
                     />
                 </DialogContent>
                 <DialogActions>
@@ -391,11 +397,11 @@ export default function Generate() {
                         onClick={handleClose}
                         sx={{
                             borderRadius: 2,
-                            borderColor: '#9c27b0',
-                            color: '#9c27b0',
+                            borderColor: '#C4A3C4',
+                            color: '#C4A3C4',
                             '&:hover': {
-                                borderColor: '#6d1b7b',
-                                color: '#6d1b7b',
+                                borderColor: '#B48CB9',
+                                color: '#B48CB9',
                             }
                         }}
                     >
@@ -404,11 +410,12 @@ export default function Generate() {
                     <Button
                         variant="contained"
                         color="primary"
+                        // onClick={saveFlashCards}
                         sx={{
                             borderRadius: 2,
-                            backgroundColor: '#9c27b0',
+                            backgroundColor: '#C4A3C4',
                             '&:hover': {
-                                backgroundColor: '#6d1b7b',
+                                backgroundColor: '#B48CB9',
                             }
                         }}
                     >
@@ -416,6 +423,7 @@ export default function Generate() {
                     </Button>
                 </DialogActions>
             </Dialog>
+
         </Box>
     );
 }    
