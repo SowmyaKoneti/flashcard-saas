@@ -67,7 +67,7 @@ export default function Home() {
           width: '100%',
           height: '100%',
           bgcolor: 'black',
-          backgroundImage: 'url(/cover.jpg)',
+          backgroundImage: 'url(/image.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
