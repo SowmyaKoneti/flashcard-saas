@@ -121,7 +121,7 @@ export default function Home() {
           <Typography variant="h5" component="h2" gutterBottom color="white" sx={{ fontFamily: 'Lobster', fontStyle: 'italic', fontWeight: 'light' }}>
             Master Any Subject with Intelligent Flashcards
             <br />
-            Boost your learning efficiency with our customizable flashcards. 
+            Boost your learning efficiency with our customizable flashcards.
             <br />
             Create, save, and review cards effortlessly—anytime, anywhere.
           </Typography>
