@@ -121,7 +121,7 @@ export default function Generate() {
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    backgroundImage: 'url(/image.png)',
+                    backgroundImage: 'url(/image4.png)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat',
