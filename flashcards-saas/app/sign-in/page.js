@@ -17,11 +17,12 @@ export default function SignUpPage() {
           left: 0,
           width: '100%',
           height: '100%',
-          backgroundImage: 'url(/cover-image.webp)',
+          backgroundColor: 'black',
+          backgroundImage: 'url(/download.jpeg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          opacity: 0.9,
+          opacity: 1,
           zIndex: -1,
         }
       }}
