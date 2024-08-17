@@ -66,7 +66,7 @@ export default function Home() {
           left: 0,
           width: '100%',
           height: '100%',
-          backgroundImage: 'url(/image.png)',
+          backgroundImage: 'url(/cover-image.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -83,18 +83,42 @@ export default function Home() {
         <br />
         <Stack direction="row" spacing={3} justifyContent="flex-end">
           <SignedOut>
-            <Button variant="contained" color="inherit" href="/sign-in">Sign In</Button>
-            <Button variant="contained" color="inherit" href="/sign-up">Sign Up</Button>
+            <Button
+              variant="contained"
+              sx={{
+                bgcolor: '#9c27b0', // light lavender
+                '&:hover': {
+                  bgcolor: '#6d1b7b', // Darker shade of lavender
+                },
+              }}
+              href="/sign-in"
+            >
+              Sign In
+            </Button>
+            <Button
+              variant="contained"
+              sx={{
+                bgcolor: '#9c27b0', // light lavender
+                '&:hover': {
+                  bgcolor: '#6d1b7b', // Darker shade of lavender
+                },
+              }}
+              href="/sign-up"
+            >
+              Sign Up
+            </Button>
           </SignedOut>
           <SignedIn>
             <UserButton />
           </SignedIn>
         </Stack>
         <Box sx={{ textAlign: 'center', my: 4 }}>
-          <Typography variant="h2" component="h1" gutterBottom >
-            Custom Flashcards
-          </Typography>
-          <Typography variant="h5" component="h2" gutterBottom sx={{ fontFamily: 'Lobster', fontStyle: 'italic', fontWeight: 'light' }}>
+        <Typography variant="h2" component="h1" gutterBottom fontWeight="bold">
+          <span style={{ color: 'white' }}>Custom</span> 
+          <span style={{ color: '#9c27b0' }}> AI </span> 
+          <span style={{ color: 'white' }}>Flashcards</span>
+        </Typography>
+          <Typography variant="h5" component="h2" gutterBottom color="white" sx={{ fontFamily: 'Lobster', fontStyle: 'italic', fontWeight: 'light' }}>
             Master Any Subject with Intelligent Flashcards
             <br />
             Boost your learning efficiency with our customizable flashcards. Create, save, and review cards effortlessly—anytime, anywhere.
@@ -104,9 +128,9 @@ export default function Home() {
             sx={{
               mt: 2,
               mr: 2,
-              bgcolor: '#C4A3C4', // light lavender
+              bgcolor: '#9c27b0', // light lavender
               '&:hover': {
-                bgcolor: '#B48CB9', // Darker shade of lavender
+                bgcolor: '#6d1b7b', // Darker shade of lavender
               },
             }}
             href="/generate"
@@ -114,88 +138,12 @@ export default function Home() {
             Get Started
           </Button>
         </Box>
-        {/* <Box sx={{ my: 6 }}>
-          <Typography variant="h4" component="h2" gutterBottom sx={{ fontFamily: 'Dancing Script', fontWeight: 700 }}>
-            Featured
-          </Typography>
-          <Grid container spacing={4}>
-            <Grid item xs={12} md={4}>
-              <Typography
-                variant="h6"
-                gutterBottom
-                sx={{
-                  fontFamily: 'Dancing Script',
-                  fontWeight: 700,
-                  color: '#C4A3C4'  // Lavender color matching the application
-                }}
-              >
-                Seamless Text Input
-              </Typography>
-              <Typography
-                sx={{
-                  fontFamily: 'Lobster',
-                  fontStyle: 'italic',
-                  fontWeight: 400,
-                  color: '#333',  // Subtle dark color for body text
-                }}
-              >
-                Simply input your text, and our intuitive interface will guide you. Creating flashcards is effortless and quick.
-              </Typography>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <Typography
-                variant="h6"
-                gutterBottom
-                sx={{
-                  fontFamily: 'Dancing Script',
-                  fontWeight: 700,
-                  color: '#C4A3C4'  // Lavender color matching the application
-                }}
-              >
-                Intelligent Flashcards
-              </Typography>
-              <Typography
-                sx={{
-                  fontFamily: 'Lobster',
-                  fontStyle: 'italic',
-                  fontWeight: 400,
-                  color: '#333',  // Subtle dark color for body text
-                }}
-              >
-                Our AI breaks down complex texts into concise flashcards, perfectly tailored for efficient studying.
-              </Typography>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <Typography
-                variant="h6"
-                gutterBottom
-                sx={{
-                  fontFamily: 'Dancing Script',
-                  fontWeight: 700,
-                  color: '#C4A3C4'  // Lavender color matching the application
-                }}
-              >
-                Study Anywhere, Anytime
-              </Typography>
-              <Typography
-                sx={{
-                  fontFamily: 'Lobster',
-                  fontStyle: 'italic',
-                  fontWeight: 400,
-                  color: '#333',  // Subtle dark color for body text
-                }}
-              >
-                Access your flashcards from any device, ensuring you can study on the go, wherever you are.
-              </Typography>
-            </Grid>
-          </Grid>
-        </Box> */}
         <Box
           sx={{ my: 5, textAlign: 'left' }}
           onMouseEnter={handlePricingHover}
           ref={pricingRef}
         >
-          <Typography variant="h4" component="h2" gutterBottom sx={{ fontFamily: 'Dancing Script', textAlign: 'center', fontWeight: 700 }}>
+          <Typography variant="h3" component="h2" gutterBottom color="white" sx={{ fontFamily: 'Dancing Script', textAlign: 'center', fontWeight: 700 }}>
             Pricing
           </Typography>
           <Grid container spacing={4} justifyContent="center">
@@ -203,20 +151,22 @@ export default function Home() {
               <Box sx={{
                 p: 3,
                 border: "1px solid",
-                borderColor: "grey.300",
+                borderColor: "grey.800", // Darker grey to match app background
                 borderRadius: 2,
-                transition: 'box-shadow 0.3s ease-in-out', // Smooth transition for the shadow
+                transition: 'box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out', // Smooth transition for the shadow and transform
+                boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.2)', // Initial subtle shadow
                 '&:hover': {
-                  boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5)', // Shadow on hover
+                  boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5), 0px 0px 15px rgba(255, 255, 255, 0.3)', // Shadow with light effect on hover
+                  transform: 'scale(1.05)', // Slightly scale the box up to create the pop effect
                 }
               }}>
-                <Typography variant="h5" gutterBottom sx={{ fontFamily: 'Dancing Script', fontWeight: 700 }}>
+                <Typography variant="h4" gutterBottom color="white" sx={{ fontFamily: 'Dancing Script', fontWeight: 'bold' }}>
                   Basic
                 </Typography>
-                <Typography variant="h6" gutterBottom sx={{ fontFamily: 'Lobster', fontWeight: 'medium' }}>
+                <Typography variant="h6" gutterBottom color="white" sx={{ fontFamily: 'Lobster', fontWeight: 'bold' }}>
                   $5 / month
                 </Typography>
-                <Typography sx={{ fontFamily: 'Lobster', fontStyle: 'italic', fontWeight: 'medium' }}>
+                <Typography color="white" sx={{ fontFamily: 'Lobster', fontStyle: 'italic', fontWeight: 'medium' }}>
                   {" "}
                   Access to basic flashcard features and limited storage.
                 </Typography>
@@ -224,10 +174,10 @@ export default function Home() {
                   variant="contained"
                   sx={{
                     mt: 2,
-                    bgcolor: subscriptionType === 'basic' ? '#D8BFD8' : '#808080',
+                    bgcolor: '#9c27b0', // light lavender
                     '&:hover': {
-                      bgcolor: subscriptionType === 'basic' ? '#C4A3C4' : '#C4A3C4',
-                    }
+                      bgcolor: '#6d1b7b', // Darker shade of lavender
+                    },
                   }}
                   onClick={() => {
                     setSubscriptionType('basic');
@@ -242,20 +192,22 @@ export default function Home() {
               <Box sx={{
                 p: 3,
                 border: "1px solid",
-                borderColor: "grey.300",
+                borderColor: "grey.800", // Darker grey to match app background
                 borderRadius: 2,
-                transition: 'box-shadow 0.3s ease-in-out', // Smooth transition for the shadow
+                transition: 'box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out', // Smooth transition for the shadow and transform
+                boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.2)', // Initial subtle shadow
                 '&:hover': {
-                  boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5)', // Shadow on hover
+                  boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5), 0px 0px 15px rgba(255, 255, 255, 0.3)', // Shadow with light effect on hover
+                  transform: 'scale(1.05)', // Slightly scale the box up to create the pop effect
                 }
               }}>
-                <Typography variant="h5" gutterBottom sx={{ fontFamily: 'Dancing Script', fontWeight: 700 }}>
+                <Typography variant="h4" gutterBottom color="white" sx={{ fontFamily: 'Dancing Script', fontWeight: 'bold' }}>
                   Pro
                 </Typography>
-                <Typography variant="h6" gutterBottom sx={{ fontFamily: 'Lobster', fontWeight: 'medium' }}>
+                <Typography variant="h6" gutterBottom color="white" sx={{ fontFamily: 'Lobster', fontWeight: 'bold' }}>
                   $10 / month
                 </Typography>
-                <Typography sx={{ fontFamily: 'Lobster', fontStyle: 'italic', fontWeight: 'medium' }}>
+                <Typography color="white" sx={{ fontFamily: 'Lobster', fontStyle: 'italic', fontWeight: 'medium' }}>
                   {" "}
                   Unlimited flashcards and storage, with priority support.
                 </Typography>
@@ -263,10 +215,10 @@ export default function Home() {
                   variant="contained"
                   sx={{
                     mt: 2,
-                    bgcolor: subscriptionType === 'pro' ? '#D8BFD8' : '#808080',
+                    bgcolor: '#9c27b0', // light lavender
                     '&:hover': {
-                      bgcolor: subscriptionType === 'pro' ? '#C4A3C4' : '#C4A3C4',
-                    }
+                      bgcolor: '#6d1b7b', // Darker shade of lavender
+                    },
                   }}
                   onClick={() => {
                     setSubscriptionType('pro');
@@ -287,9 +239,9 @@ export default function Home() {
               color="primary"
               disabled={!subscriptionType}
               sx={{
-                bgcolor: '#C4A3C4', // Use the state for background color
+                bgcolor: '#9c27b0', // light lavender
                 '&:hover': {
-                  bgcolor: '#C4A3C4' ? '#B48CB9' : 'primary.dark', // Darker shade on hover
+                  bgcolor: '#6d1b7b', // Darker shade of lavender
                 },
               }}
               onClick={handleSubmit}
@@ -301,4 +253,5 @@ export default function Home() {
       </Container>
     </Box>
   );
+
 }
