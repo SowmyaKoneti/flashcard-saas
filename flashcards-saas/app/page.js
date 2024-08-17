@@ -120,12 +120,12 @@ export default function Home() {
             <span style={{ color: '#9c27b0' }}> AI </span>
             <span style={{ color: 'white' }}>Flashcards</span>
           </Typography>
-          <Typography variant="h5" component="h2" gutterBottom color="white" sx={{ fontFamily: 'Lobster', fontStyle: 'italic', fontWeight: 'light' }}>
+          <Typography variant="h5" component="h3" gutterBottom color="white" sx={{  fontFamily: 'Ariel', fontWeight: 'light' }}>
             Master Any Subject with Intelligent Flashcards
             <br />
             Boost your learning efficiency with our customizable flashcards.
             <br />
-            Create, save, and review cards effortlessly—anytime, anywhere.
+            Create, save, and review cards effortlessly - anytime, anywhere.
           </Typography>
           <Button
             variant="contained"
@@ -176,7 +176,7 @@ export default function Home() {
                 <Typography variant="h6" gutterBottom color="white" sx={{ fontWeight: 'bold' }}>
                   $5 / month
                 </Typography>
-                <Typography color="white" sx={{ fontFamily: 'Lobster', fontStyle: 'italic', fontWeight: 'medium' }}>
+                <Typography color="white" sx={{ fontFamily: 'Ariel', fontWeight: 'medium' }}>
                   {" "}
                   Access to basic flashcard features and limited storage.
                 </Typography>
@@ -223,7 +223,7 @@ export default function Home() {
                 <Typography variant="h6" gutterBottom color="white" sx={{ fontWeight: 'bold' }}>
                   $10 / month
                 </Typography>
-                <Typography color="white" sx={{ fontFamily: 'Lobster', fontStyle: 'italic', fontWeight: 'medium' }}>
+                <Typography color="white" sx={{ fontFamily: 'Ariel', fontWeight: 'medium' }}>
                   {" "}
                   Unlimited flashcards and storage, with priority support.
                 </Typography>
