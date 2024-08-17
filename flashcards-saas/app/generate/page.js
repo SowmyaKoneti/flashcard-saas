@@ -110,313 +110,321 @@ export default function Generate() {
     };
 
     return (
-        <Box
-          sx={{
-            position: 'relative',
-            minHeight: '100vh',
-            padding: 0,
-            '&::before': {
-              content: '""',
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              backgroundImage: 'url(/cover-image.webp)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              opacity: 0.9,
-              zIndex: -1,
-            }
-          }}
-        >
-          <Container maxWidth="md">
-            <Box sx={{ mb: 6, textAlign: 'center' }}>
-              <Typography variant="h3" sx={{ paddingTop: 4, color: 'white', fontFamily: 'Dancing Script', fontWeight: 'bold' }} gutterBottom>
-                Create Flashcards
-              </Typography>
-              <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, maxWidth: 600, mx: 'auto', mt: 4 }}>
-                <TextField
-                  value={text}
-                  onChange={(e) => setText(e.target.value)}
-                  label="Enter title to generate flashcard"
-                  variant="outlined"
-                  size="medium"
-                  sx={{
-                    flex: 1,
-                    minWidth: 200,
-                    borderRadius: 2,
-                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19)',
-                    transition: 'box-shadow 0.3s ease-in-out',
-                    '&:hover': {
-                      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.4), 0 12px 40px rgba(0, 0, 0, 0.38)',
-                    },
-                    '& .MuiOutlinedInput-root': {
-                      '& fieldset': {
-                        borderColor: 'grey.500',
-                      },
-                      '&:hover fieldset': {
-                        borderColor: 'grey.500',
-                      },
-                      '&.Mui-focused fieldset': {
-                        borderColor: '#9c27b0',
-                      },
-                    },
-                    '& .MuiInputLabel-root': {
-                      color: 'white',
-                      '&.Mui-focused': {
-                        color: '#9c27b0',
-                      },
-                    },
-                  }}
-                  InputProps={{
-                    sx: {
-                      color: 'white',
-                    }
-                  }}
-                />
-      
-                <Button
-                  variant="contained"
-                  sx={{
-                    borderRadius: 2,
-                    backgroundColor: '#9c27b0', // Button color
-                    '&:hover': {
-                      backgroundColor: '#6d1b7b', // Darker shade of button color
-                    }
-                  }}
-                  onClick={handleSubmit}
-                >
-                  Generate
-                </Button>
-              </Box>
-            </Box>
-      
-            <Box
+      <Box
               sx={{
-                width: '100%',
-                maxWidth: '1800px',
-                backgroundColor: 'transparent',
-                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.15)',
-                padding: 3,
-                margin: 'auto',
-                transition: 'box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out', // Smooth transition for the shadow and transform
-                boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.2)', // Initial subtle shadow
-                '&:hover': {
-                  boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5), 0px 0px 15px rgba(255, 255, 255, 0.3)', // Shadow with light effect on hover
-                  transform: 'scale(1.05)',
-                },
+                  position: 'relative',
+                  minHeight: '100vh',
+                  padding: 0,
+                  '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '100%',
+                      backgroundImage: 'url(/image.png)',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      backgroundRepeat: 'no-repeat',
+                      opacity: 0.5,
+                      zIndex: -1,
+                  }
               }}
-            >
-              <Tabs value={selectedTab} onChange={handleTabChange} centered>
-                <Tab label="Preview" sx={{ minWidth: 'unset', color: selectedTab === 0 ? '#9c27b0' : 'white', fontWeight: selectedTab === 0 ? 'bold' : 'normal' }} />
-                <Tab label="Saved Cards" sx={{ minWidth: 'unset', color: selectedTab === 1 ? '#9c27b0' : 'white', fontWeight: selectedTab === 1 ? 'bold' : 'normal' }} />
-              </Tabs>
-      
-              {selectedTab === 0 && (
-                <Box sx={{ p: 3 }}>
-                  {flashcards.length > 0 ? (
-                    <Box>
-                      <Grid container spacing={2}>
-                        {flashcards.map((flashcard, index) => (
-                          <Grid item xs={12} sm={6} md={4} key={index}>
-                            <Card
+          >
+              <Container maxWidth="md">
+                  <Box sx={{ mb: 6, textAlign: 'center' }}>
+                      <Typography variant="h4" sx={{ paddingTop: 4 }} gutterBottom>Create Flashcards</Typography>
+                      <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, maxWidth: 600, mx: 'auto', mt: 4 }}>
+                          <TextField
+                              value={text}
+                              onChange={(e) => setText(e.target.value)}
+                              label="Enter title to generate flashcard"
+                              variant="outlined"
+                              size="medium"
                               sx={{
-                                height: 250,
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                perspective: 1000,
-                                background: gradients[index % gradients.length],
-                                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-                                borderRadius: 2,
-                                position: 'relative',
+                                  flex: 1,
+                                  minWidth: 200,
+                                  borderRadius: 2,
+                                  backgroundColor: 'background.paper',
+                                  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19)',
+                                  transition: 'box-shadow 0.3s ease-in-out',
+                                  '&:hover': {
+                                      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.4), 0 12px 40px rgba(0, 0, 0, 0.38)',
+                                  },
+                                  '& .MuiOutlinedInput-root': {
+                                      '& fieldset': {
+                                          borderColor: 'divider',
+                                      },
+                                      '&:hover fieldset': {
+                                          borderColor: 'divider',
+                                      },
+                                      '&.Mui-focused fieldset': {
+                                          borderColor: '#D3B5E0',
+                                      },
+                                  },
+                                  '& .MuiInputLabel-root': {
+                                      color: 'text.secondary',
+                                      '&.Mui-focused': {
+                                          color: 'grey',
+                                      },
+                                  },
+  
                               }}
-                            >
-                              <CardActionArea
-                                sx={{
-                                  width: '100%',
-                                  height: '100%',
-                                  position: 'relative',
-                                  display: 'flex',
-                                  alignItems: 'center',
-                                  justifyContent: 'center',
-                                  transformStyle: 'preserve-3d',
-                                  transition: 'transform 0.6s ease',
-                                  transform: flipped[index] ? 'rotateY(180deg)' : 'rotateY(0deg)',
-                                }}
-                                onClick={() => handleCardClick(index)}
-                              >
-                                <CardContent sx={{ position: 'absolute', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', backfaceVisibility: 'hidden' }}>
-                                  <Typography variant="h6" sx={{ textAlign: 'center', padding: 2, color: '#000' }}>
-                                    {flashcard.front}
-                                  </Typography>
-                                </CardContent>
-                                <CardContent sx={{ position: 'absolute', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', transform: 'rotateY(180deg)', backfaceVisibility: 'hidden' }}>
-                                  <Typography variant="h6" sx={{ textAlign: 'center', padding: 2, color: '#000' }}>
-                                    {flashcard.back}
-                                  </Typography>
-                                </CardContent>
-                              </CardActionArea>
-                              <IconButton
-                                sx={{
-                                  position: 'absolute',
-                                  top: 8,
-                                  right: 8,
-                                  color: savedCards.includes(flashcard) ? '#9c27b0' : '#757575',
-                                }}
-                                onClick={() => handleSaveCard(index)}
-                              >
-                                {savedCards.includes(flashcard) ? <Bookmark /> : <BookmarkBorder />}
-                              </IconButton>
-                            </Card>
-                          </Grid>
-                        ))}
-                      </Grid>
-                    </Box>
-                  ) : (
-                    <Typography variant="body1" sx={{ textAlign: 'center', color: 'white' }}>No flashcards to display.</Typography>
-                  )}
-                </Box>
-              )}
-      
-              {selectedTab === 1 && (
-                <Box sx={{ p: 3 }}>
-                  {savedCards.length > 0 ? (
-                    <Grid container spacing={2}>
-                      {savedCards.map((flashcard, index) => (
-                        <Grid item xs={12} sm={6} md={4} key={index}>
-                          <Card
-                            sx={{
-                              height: 250,
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              perspective: 1000,
-                              background: gradients[index % gradients.length],
-                              boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-                              borderRadius: 2,
-                              position: 'relative',
-                            }}
+                              InputProps={{
+                                  sx: {
+                                      borderColor: 'divider',
+                                  }
+                              }}
+                          />
+  
+                          <Button
+                              variant="contained"
+                              sx={{
+                                  borderRadius: 2,
+                                  backgroundColor: '#C4A3C4', // '#C3B1E1' Purple color
+                                  '&:hover': {
+                                      backgroundColor: '#B48CB9', // '#7b1fa2' Darker shade of purple for hover effect
+                                  }
+                              }}
+                              onClick={handleSubmit}
                           >
-                            <CardActionArea
-                              sx={{
-                                width: '100%',
-                                height: '100%',
-                                position: 'relative',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                transformStyle: 'preserve-3d',
-                                transition: 'transform 0.6s ease',
-                                transform: flipped[index + flashcards.length] ? 'rotateY(180deg)' : 'rotateY(0deg)',
-                              }}
-                              onClick={() => handleCardClick(index + flashcards.length)}
-                            >
-                              <CardContent sx={{ position: 'absolute', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', backfaceVisibility: 'hidden' }}>
-                                <Typography variant="h6" sx={{ textAlign: 'center', padding: 2, color: '#000' }}>
-                                  {flashcard.front}
-                                </Typography>
-                              </CardContent>
-                              <CardContent sx={{ position: 'absolute', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', transform: 'rotateY(180deg)', backfaceVisibility: 'hidden' }}>
-                                <Typography variant="h6" sx={{ textAlign: 'center', padding: 2, color: '#000' }}>
-                                  {flashcard.back}
-                                </Typography>
-                              </CardContent>
-                            </CardActionArea>
-                            <IconButton
-                              sx={{
-                                position: 'absolute',
-                                top: 8,
-                                left: 8,
-                                color: '#757575',
-                              }}
-                              onClick={() => handleDeleteCard(index)}
-                            >
-                              <Delete />
-                            </IconButton>
-      
-                          </Card>
-                        </Grid>
-                      ))}
-                    </Grid>
-                  ) : (
-                    <Typography variant="body1" sx={{ textAlign: 'center', color: 'white' }}>No saved cards available.</Typography>
-                  )}
-                </Box>
-              )}
-            </Box>
-          </Container>
-      
-          <Dialog open={open} onClose={handleClose}>
-            <DialogTitle sx={{ color: '#9c27b0', fontFamily: 'Lobster' }}>Save Flashcards</DialogTitle>
-            <DialogContent>
-              <DialogContentText sx={{ color: 'grey.700', fontFamily: 'Lobster' }}>
-                Please enter a name for your flashcard set.
-              </DialogContentText>
-              <TextField
-                autoFocus
-                margin="dense"
-                label="Set Name"
-                type="text"
-                fullWidth
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                sx={{
-                  mb: 2,
-                  '& .MuiOutlinedInput-root': {
-                    '& fieldset': {
-                      borderColor: 'grey.500',
-                    },
-                    '&:hover fieldset': {
-                      borderColor: 'grey.500',
-                    },
-                    '&.Mui-focused fieldset': {
-                      borderColor: '#9c27b0',
-                    },
-                  },
-                  '& .MuiInputLabel-root': {
-                    color: 'grey.700',
-                    '&.Mui-focused': {
-                      color: '#9c27b0',
-                    },
-                  },
-                }}
-              />
-            </DialogContent>
-            <DialogActions>
-              <Button
-                variant="outlined"
-                onClick={handleClose}
-                sx={{
-                  borderRadius: 2,
-                  borderColor: '#9c27b0',
-                  color: '#9c27b0',
-                  '&:hover': {
-                    borderColor: '#6d1b7b',
-                    color: '#6d1b7b',
-                  }
-                }}
-              >
-                Cancel
-              </Button>
-              <Button
-                variant="contained"
-                color="primary"
-                sx={{
-                  borderRadius: 2,
-                  backgroundColor: '#9c27b0',
-                  '&:hover': {
-                    backgroundColor: '#6d1b7b',
-                  }
-                }}
-              >
-                Save
-              </Button>
-            </DialogActions>
-          </Dialog>
-        </Box>
-    );
+                              Generate
+                          </Button>
+                      </Box>
+                  </Box>
+  
+                  <Box
+                      sx={{
+                          width: '100%',
+                          maxWidth: '1800px',
+                          backgroundColor: 'transparent',
+                          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.15)',
+                          padding: 3,
+                          margin: 'auto',
+                          transition: 'box-shadow 0.3s ease, background-color 0.3s ease',
+                          '&:hover': {
+                              boxShadow: '0 6px 12px rgba(0, 0, 0, 0.3), 0 12px 24px rgba(0, 0, 0, 0.25)',
+                          },
+  
+                      }}
+                  >
+                      <Tabs value={selectedTab} onChange={handleTabChange} centered>
+                          <Tab label="Preview" sx={{ minWidth: 'unset', color: selectedTab === 0 ? '#FF6F6F' : '#333', fontWeight: selectedTab === 0 ? 'bold' : 'normal' }} />
+                          <Tab label="Saved Cards" sx={{ minWidth: 'unset', color: selectedTab === 1 ? '#FF6F6F' : '#333', fontWeight: selectedTab === 1 ? 'bold' : 'normal' }} />
+                          {/* <Tab label="History" sx={{ minWidth: 'unset', color: selectedTab === 2 ? '#FF6F6F' : '#333', fontWeight: selectedTab === 2 ? 'bold' : 'normal' }} /> */}
+                      </Tabs>
+  
+                      {selectedTab === 0 && (
+                          <Box sx={{ p: 3 }}>
+                              {flashcards.length > 0 ? (
+                                  <Box>
+                                      <Grid container spacing={2}>
+                                          {flashcards.map((flashcard, index) => (
+                                              <Grid item xs={12} sm={6} md={4} key={index}>
+                                                  <Card
+                                                      sx={{
+                                                          height: 250,
+                                                          display: 'flex',
+                                                          alignItems: 'center',
+                                                          justifyContent: 'center',
+                                                          perspective: 1000,
+                                                          background: gradients[index % gradients.length],
+                                                          boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+                                                          borderRadius: 2,
+                                                          position: 'relative',
+                                                      }}
+                                                  >
+                                                      <CardActionArea
+                                                          sx={{
+                                                              width: '100%',
+                                                              height: '100%',
+                                                              position: 'relative',
+                                                              display: 'flex',
+                                                              alignItems: 'center',
+                                                              justifyContent: 'center',
+                                                              transformStyle: 'preserve-3d',
+                                                              transition: 'transform 0.6s ease',
+                                                              transform: flipped[index] ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                                                          }}
+                                                          onClick={() => handleCardClick(index)}
+                                                      >
+                                                          <CardContent sx={{ position: 'absolute', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', backfaceVisibility: 'hidden' }}>
+                                                              <Typography variant="h6" sx={{ textAlign: 'center', padding: 2, color: '#000' }}>
+                                                                  {flashcard.front}
+                                                              </Typography>
+                                                          </CardContent>
+                                                          <CardContent sx={{ position: 'absolute', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', transform: 'rotateY(180deg)', backfaceVisibility: 'hidden' }}>
+                                                              <Typography variant="h6" sx={{ textAlign: 'center', padding: 2, color: '#000' }}>
+                                                                  {flashcard.back}
+                                                              </Typography>
+                                                          </CardContent>
+                                                      </CardActionArea>
+                                                      <IconButton
+                                                          sx={{
+                                                              position: 'absolute',
+                                                              top: 8,
+                                                              right: 8,
+                                                              color: savedCards.includes(flashcard) ? '#C4A3C4' : '#757575',
+                                                          }}
+                                                          onClick={() => handleSaveCard(index)}
+                                                      >
+                                                          {savedCards.includes(flashcard) ? <Bookmark /> : <BookmarkBorder />}
+                                                      </IconButton>
+                                                  </Card>
+                                              </Grid>
+                                          ))}
+                                      </Grid>
+                                      {/* <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+                                          <Button
+                                              variant="contained"
+                                              sx={{
+                                                  borderRadius: 2,
+                                                  backgroundColor: '#C4A3C4',
+                                                  '&:hover': {
+                                                      backgroundColor: '#B48CB9',
+                                                  }
+                                              }}
+                                              onClick={handleOpen}
+                                          >
+                                              Save Flashcards
+                                          </Button>
+                                      </Box> */}
+                                  </Box>
+                              ) : (
+                                  <Typography variant="body1" sx={{ textAlign: 'center' }}>No flashcards to display.</Typography>
+                              )}
+                          </Box>
+  
+                      )}
+  
+                      {selectedTab === 1 && (
+                          <Box sx={{ p: 3 }}>
+                              {savedCards.length > 0 ? (
+                                  <Grid container spacing={2}>
+                                      {savedCards.map((flashcard, index) => (
+                                          <Grid item xs={12} sm={6} md={4} key={index}>
+                                              <Card
+                                                  sx={{
+                                                      height: 250,
+                                                      display: 'flex',
+                                                      alignItems: 'center',
+                                                      justifyContent: 'center',
+                                                      perspective: 1000,
+                                                      background: gradients[index % gradients.length],
+                                                      boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+                                                      borderRadius: 2,
+                                                      position: 'relative',
+                                                  }}
+                                              >
+                                                  <CardActionArea
+                                                      sx={{
+                                                          width: '100%',
+                                                          height: '100%',
+                                                          position: 'relative',
+                                                          display: 'flex',
+                                                          alignItems: 'center',
+                                                          justifyContent: 'center',
+                                                          transformStyle: 'preserve-3d',
+                                                          transition: 'transform 0.6s ease',
+                                                          transform: flipped[index + flashcards.length] ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                                                      }}
+                                                      onClick={() => handleCardClick(index + flashcards.length)}
+                                                  >
+                                                      <CardContent sx={{ position: 'absolute', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', backfaceVisibility: 'hidden' }}>
+                                                          <Typography variant="h6" sx={{ textAlign: 'center', padding: 2, color: '#000' }}>
+                                                              {flashcard.front}
+                                                          </Typography>
+                                                      </CardContent>
+                                                      <CardContent sx={{ position: 'absolute', width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', transform: 'rotateY(180deg)', backfaceVisibility: 'hidden' }}>
+                                                          <Typography variant="h6" sx={{ textAlign: 'center', padding: 2, color: '#000' }}>
+                                                              {flashcard.back}
+                                                          </Typography>
+                                                      </CardContent>
+                                                  </CardActionArea>
+                                                  <IconButton
+                                                      sx={{
+                                                          position: 'absolute',
+                                                          top: 8,
+                                                          left: 8,
+                                                          color: '#757575',
+                                                      }}
+                                                      onClick={() => handleDeleteCard(index)}
+                                                  >
+                                                      <Delete />
+                                                  </IconButton>
+  
+                                              </Card>
+                                          </Grid>
+                                      ))}
+                                  </Grid>
+                              ) : (
+                                  <Typography variant="body1" sx={{ textAlign: 'center' }}>No saved cards available.</Typography>
+                              )}
+                          </Box>
+                      )}
+  
+  
+                      {selectedTab === 2 && (
+                          <Box sx={{ p: 3 }}>
+                              <Typography variant="body1" sx={{ textAlign: 'center' }}>No viewed cards available.</Typography>
+                          </Box>
+                      )}
+  
+                  </Box>
+  
+  
+              </Container>
+  
+              <Dialog open={open} onClose={handleClose}>
+                  <DialogTitle>Save Flashcards</DialogTitle>
+                  <DialogContent>
+                      <DialogContentText>
+                          Please enter a name for your flashcard set.
+                      </DialogContentText>
+                      <TextField
+                          autoFocus
+                          margin="dense"
+                          label="Set Name"
+                          type="text"
+                          fullWidth
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          sx={{ mb: 2 }}
+                      />
+                  </DialogContent>
+                  <DialogActions>
+                      <Button
+                          variant="outlined"
+                          onClick={handleClose}
+                          sx={{
+                              borderRadius: 2,
+                              borderColor: '#C4A3C4',
+                              color: '#C4A3C4',
+                              '&:hover': {
+                                  borderColor: '#B48CB9',
+                                  color: '#B48CB9',
+                              }
+                          }}
+                      >
+                          Cancel
+                      </Button>
+                      <Button
+                          variant="contained"
+                          color="primary"
+                          // onClick={saveFlashCards}
+                          sx={{
+                              borderRadius: 2,
+                              backgroundColor: '#C4A3C4',
+                              '&:hover': {
+                                  backgroundColor: '#B48CB9',
+                              }
+                          }}
+                      >
+                          Save
+                      </Button>
+                  </DialogActions>
+              </Dialog>
+  
+          </Box>
+      );
 }    
