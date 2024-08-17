@@ -5,9 +5,12 @@ import { Button, Container, Typography, Box, Grid, Stack } from "@mui/material";
 import Head from "next/head";
 import { useState } from 'react';
 import { useRef } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
   const [subscriptionType, setSubscriptionType] = useState(null);
+
+  const router = useRouter();
 
   const handleSubmit = async () => {
     if (!subscriptionType) {
@@ -172,13 +175,13 @@ export default function Home() {
                   transform: 'scale(1.05)',
                 }
               }}>
-                <Typography variant="h4" gutterBottom color="white" sx={{ fontWeight: 'bold' }}>
+                <Typography variant="h4" gutterBottom color="white" sx={{ fontWeight: 'bold', textAlign: 'center' }}>
                   Free
                 </Typography>
                 {/* <Typography variant="h6" gutterBottom color="white" sx={{ fontWeight: 'bold' }}>
                   $5 / month
                 </Typography> */}
-                <Typography color="white" sx={{ fontFamily: 'Ariel', fontWeight: 'medium' }}>
+                <Typography color="white" sx={{ fontFamily: 'Ariel', fontWeight: 'medium', textAlign: 'center' }}>
                   Access to basic flashcard features with upto 10 cards storage.
                 </Typography>
                 <Button
@@ -190,10 +193,7 @@ export default function Home() {
                       bgcolor: '#6d1b7b',
                     },
                   }}
-                  onClick={() => {
-                    setSubscriptionType('basic');
-                    handleSubmit();
-                  }}
+                  onClick={() => router.push('/generate')}
                 >
                   Choose Free
                 </Button>
@@ -219,13 +219,13 @@ export default function Home() {
                   transform: 'scale(1.05)',
                 }
               }}>
-                <Typography variant="h4" gutterBottom color="white" sx={{ fontWeight: 'bold' }}>
+                <Typography variant="h4" gutterBottom color="white" sx={{ fontWeight: 'bold', textAlign: 'center'  }}>
                   Basic
                 </Typography>
-                <Typography variant="h6" gutterBottom color="white" sx={{ fontWeight: 'bold' }}>
+                <Typography variant="h6" gutterBottom color="white" sx={{ fontWeight: 'bold', textAlign:'center' }}>
                   $5 / month
                 </Typography>
-                <Typography color="white" sx={{ fontFamily: 'Ariel', fontWeight: 'medium' }}>
+                <Typography color="white" sx={{ fontFamily: 'Ariel', fontWeight: 'medium', textAlign: 'center' }}>
                   Access to basic flashcard features and limited storage.
                 </Typography>
                 <Button
@@ -266,13 +266,13 @@ export default function Home() {
                   transform: 'scale(1.05)',
                 }
               }}>
-                <Typography variant="h4" gutterBottom color="white" sx={{ fontWeight: 'bold' }}>
+                <Typography variant="h4" gutterBottom color="white" sx={{ fontWeight: 'bold', textAlign: 'center' }}>
                   Pro
                 </Typography>
-                <Typography variant="h6" gutterBottom color="white" sx={{ fontWeight: 'bold' }}>
+                <Typography variant="h6" gutterBottom color="white" sx={{ fontWeight: 'bold', textAlign: 'center' }}>
                   $10 / month
                 </Typography>
-                <Typography color="white" sx={{ fontFamily: 'Ariel', fontWeight: 'medium' }}>
+                <Typography color="white" sx={{ fontFamily: 'Ariel', fontWeight: 'medium', textAlign: 'center' }}>
                   Unlimited flashcards and storage, with priority support.
                 </Typography>
                 <Button
